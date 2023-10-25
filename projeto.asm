@@ -219,6 +219,9 @@ start:
 
             cmp bufferSize, 512 ;verifica se chegou no fim do arquivo
             je chamaFuncaoCrip
+            
+        invoke CloseHandle, writeHandle
+        invoke CloseHandle, readHandle
         jmp inicio
 
     ;Parte 2 - Descriptografia
@@ -301,6 +304,10 @@ start:
 
             cmp bufferSize, 512 ;verifica se chegou no fim do arquivo
             je chamaFuncaoDescriptografia
+            
+        invoke CloseHandle, writeHandle
+        invoke CloseHandle, readHandle
+        
         jmp inicio
 
     ;Parte 3 - Sair
